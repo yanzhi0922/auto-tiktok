@@ -1,0 +1,165 @@
+# 提示词模板配置
+# 用于抖音/短视频内容创作的预设模板
+
+# 文本生成模板
+text_generation:
+  # 视频脚本模板
+  video_script:
+    name: "视频脚本生成"
+    system_prompt: |
+      你是一位专业的短视频脚本编剧，擅长创作吸引人的抖音/短视频内容。
+      你的脚本应该：
+      1. 开头3秒抓住观众注意力
+      2. 内容紧凑，节奏明快
+      3. 结尾有强烈的行动号召
+      4. 适合6-10秒的视频时长
+      
+    user_template: |
+      请为以下主题创作一个{duration}秒的短视频脚本：
+      主题：{topic}
+      风格：{style}
+      目标受众：{audience}
+      
+      请输出：
+      1. 视频描述（用于视频生成）
+      2. 旁白文案（用于语音合成）
+      3. 画面建议
+      
+  # 标题生成模板
+  title_generation:
+    name: "爆款标题生成"
+    system_prompt: |
+      你是一位短视频标题专家，擅长创作吸引点击的标题。
+      你的标题应该：
+      1. 使用数字和符号增加视觉冲击
+      2. 制造好奇心或情感共鸣
+      3. 包含热门关键词
+      4. 控制在20字以内
+      
+    user_template: |
+      请为以下内容生成5个爆款标题：
+      内容主题：{topic}
+      内容类型：{content_type}
+      
+  # 音乐描述生成
+  music_prompt:
+    name: "音乐风格描述"
+    system_prompt: |
+      你是一位音乐风格描述专家，擅长用精准的词汇描述音乐特征。
+      
+    user_template: |
+      请为以下视频内容生成合适的音乐风格描述：
+      视频主题：{topic}
+      情感基调：{emotion}
+      节奏要求：{tempo}
+      
+      输出格式：风格,情绪,场景（用逗号分隔）
+
+# 视频生成模板
+video_generation:
+  # 运镜指令
+  camera_moves:
+    - "[固定]"      # 静态镜头
+    - "[推进]"      # 镜头推进
+    - "[拉远]"      # 镜头拉远
+    - "[左移]"      # 左移镜头
+    - "[右移]"      # 右移镜头
+    - "[左摇]"      # 左摇镜头
+    - "[右摇]"      # 右摇镜头
+    - "[上升]"      # 镜头上升
+    - "[下降]"      # 镜头下降
+    - "[上摇]"      # 上摇镜头
+    - "[下摇]"      # 下摇镜头
+    - "[变焦推近]"  # 变焦推近
+    - "[变焦拉远]"  # 变焦拉远
+    - "[晃动]"      # 晃动镜头
+    - "[跟随]"      # 跟随镜头
+    
+  # 场景模板
+  scenes:
+    daily_life:
+      name: "日常生活"
+      prompts:
+        - "一个人在咖啡馆里看书，阳光透过窗户洒进来 [推进]"
+        - "女孩在公园里遛狗，笑声回荡 [跟随]"
+        - "厨师在厨房里精心制作美食 [固定]"
+        
+    nature:
+      name: "自然风光"
+      prompts:
+        - "日出时分，金色阳光洒在山峦上 [左摇,上升]"
+        - "海浪轻轻拍打着沙滩，海鸥飞过 [固定]"
+        - "森林中阳光透过树叶，形成光斑 [下降]"
+        
+    urban:
+      name: "都市生活"
+      prompts:
+        - "繁华的街道上人来人往，霓虹灯闪烁 [右移]"
+        - "高楼大厦的玻璃幕墙反射着天空 [上升]"
+        - "夜晚的城市天际线，灯火辉煌 [拉远]"
+
+# 语音合成配置
+speech_synthesis:
+  # 预设音色
+  voices:
+    male:
+      young: "male-qn-qingse"      # 青年男声-青涩
+      mature: "male-qn-jingying"   # 青年男声-精英
+      warm: "male-qn-qingxin"      # 青年男声-清新
+      
+    female:
+      young: "female-shaonv"       # 少女音
+      sweet: "female-tianmei"      # 甜美女声
+      gentle: "female-wenrou"      # 温柔女声
+      mature: "female-chengshu"    # 成熟女声
+      
+  # 情感预设
+  emotions:
+    happy: "开心"
+    sad: "悲伤"
+    angry: "愤怒"
+    fearful: "恐惧"
+    surprised: "惊讶"
+    disgusted: "厌恶"
+    neutral: "中性"
+
+# 音乐生成配置
+music_generation:
+  # 风格预设
+  styles:
+    pop: "流行音乐"
+    electronic: "电子音乐"
+    classical: "古典音乐"
+    jazz: "爵士乐"
+    hiphop: "嘻哈音乐"
+    rock: "摇滚乐"
+    folk: "民谣"
+    ambient: "氛围音乐"
+    
+  # 情绪预设
+  moods:
+    happy: "欢快,愉悦,轻松"
+    sad: "悲伤,忧郁,沉思"
+    energetic: "活力,激情,动感"
+    calm: "平静,舒缓,放松"
+    dramatic: "戏剧性,紧张,悬疑"
+    romantic: "浪漫,温馨,甜蜜"
+
+# 图片生成配置
+image_generation:
+  # 画风预设
+  styles:
+    realistic: "写实风格"
+    anime: "动漫风格"
+    watercolor: "水彩风格"
+    oil_painting: "油画风格"
+    sketch: "素描风格"
+    3d: "3D渲染风格"
+    
+  # 尺寸预设
+  aspect_ratios:
+    square: "1:1"          # 正方形
+    portrait: "2:3"        # 竖版
+    landscape: "3:2"       # 横版
+    story: "9:16"          # 竖屏故事
+    wide: "16:9"           # 宽屏

@@ -1,0 +1,21 @@
+# MiniMax Auto TikTok Pipeline 依赖包
+
+# 核心依赖
+requests>=2.31.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+
+# YAML 配置
+pyyaml>=6.0
+
+# 日志和工具
+colorama>=0.4.6
+tqdm>=4.66.0
+schedule>=1.2.0
+
+# 可选依赖（用于高级功能）
+# aiohttp>=3.9.0  # 异步 HTTP 请求
+# pillow>=10.0.0  # 图片处理
+# moviepy>=1.0.3  # 视频编辑
+# whisperx  # 可选：字级时间戳字幕；建议按官方说明单独安装 PyTorch/whisperx

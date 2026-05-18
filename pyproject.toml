@@ -1,0 +1,29 @@
+[project]
+name = "auto-tiktok"
+version = "0.1.0"
+description = "AI-powered Douyin/TikTok short-video autopilot with MiniMax, FFmpeg, Dashboard, Docker, and publishing workflows."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "yanzhi0922" }]
+keywords = [
+  "ai-video",
+  "short-video",
+  "tiktok",
+  "douyin",
+  "minimax",
+  "ffmpeg",
+  "autopilot",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F"]
+ignore = ["E501"]

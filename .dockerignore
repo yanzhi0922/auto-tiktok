@@ -1,0 +1,11 @@
+.env
+output/
+logs/
+__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+test_audio/
+test_subs/
+tmp/

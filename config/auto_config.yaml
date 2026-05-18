@@ -1,0 +1,128 @@
+# 自动化配置
+# 用于一键生成和定时任务
+
+# 内容策略配置
+content_strategy:
+  # 默认内容类型（每天轮换）
+  default_types:
+    - "生活技巧"
+    - "情感共鸣"
+    - "知识科普"
+    - "娱乐搞笑"
+    - "美食探店"
+    - "旅行vlog"
+    - "萌宠日常"
+  
+  # 每天生成的内容数量
+  daily_count: 3
+  
+  # 是否自动生成视频
+  auto_generate_video: true
+  
+  # 是否自动生成音乐
+  auto_generate_music: false
+  
+  # 是否自动生成缩略图
+  auto_generate_thumbnail: true
+  
+  # 视频默认时长
+  default_duration: 6
+
+  # 默认语音
+  default_voice: "female_tianmei"
+
+# 发布策略
+publish_strategy:
+  # 最佳发布时间段（24小时制）
+  best_hours:
+    - 12  # 中午12点
+    - 18  # 晚上6点
+    - 19  # 晚上7点
+    - 20  # 晚上8点
+    - 21  # 晚上9点
+  
+  # 工作日最佳发布时间
+  weekday_best_time: "18:00"
+  
+  # 周末最佳发布时间
+  weekend_best_time: "12:00"
+
+# 热门话题库（自动选择）
+trending_topics:
+  life_hacks:
+    - "省钱妙招"
+    - "收纳整理"
+    - "厨房技巧"
+    - "清洁妙招"
+    - "生活小窍门"
+  
+  emotional:
+    - "治愈瞬间"
+    - "暖心故事"
+    - "励志分享"
+    - "emo时刻"
+  
+  knowledge:
+    - "冷知识"
+    - "科普一下"
+    - "涨知识了"
+    - "学到了"
+  
+  entertainment:
+    - "沙雕日常"
+    - "搞笑瞬间"
+    - "神评论"
+    - "笑死我了"
+  
+  food:
+    - "隐藏美食"
+    - "网红打卡"
+    - "家常菜谱"
+    - "美食测评"
+  
+  travel:
+    - "小众景点"
+    - "穷游攻略"
+    - "旅行vlog"
+    - "城市探索"
+  
+  pets:
+    - "猫咪日常"
+    - "狗狗萌态"
+    - "宠物搞笑"
+    - "治愈萌宠"
+
+# 自动化任务配置
+automation:
+  # 是否启用自动化
+  enabled: true
+  
+  # 定时任务时间（cron表达式）
+  # 示例: "0 9 * * *" 表示每天9点
+  schedule: "0 9 * * *"
+  
+  # 输出目录
+  output_dir: "output"
+  
+  # 日志目录
+  log_dir: "logs"
+
+# 全自动模式：自动选题、生成、质量门槛、失败修复和发布包导出
+autopilot:
+  enabled: true
+  default_count: 3
+  min_score: 65
+  publish_min_score: 65
+  script_attempts: 4
+  script_accept_score: 75
+  max_topic_attempts: 9
+  max_generation_retries: 1
+  auto_publish: true
+  publish_provider: "manual"
+  publish_fallback_provider: "manual"
+  asset_retries:
+    - "video"
+    - "subtitle"
+    - "compose"
+    - "cover"
+  topic_source_urls: []
