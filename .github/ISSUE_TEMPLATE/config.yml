@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas / 问题与想法
+    url: https://github.com/yanzhi0922/auto-tiktok/discussions
+    about: Use GitHub Discussions for open-ended questions, usage help, and roadmap ideas.

@@ -299,8 +299,8 @@ python -m compileall config src main.py douyin_main.py auto_scheduler.py run_dai
 - [Autopilot](docs/AUTOPILOT.md)
 - [部署](docs/DEPLOYMENT.md)
 - [推广](docs/PROMOTION.md)
-- [抖音指南](DOUYIN_GUIDE.md)
-- [自动化使用](AUTO_USAGE.md)
+- [抖音指南](docs/DOUYIN_GUIDE.md)
+- [自动化使用](docs/AUTO_USAGE.md)
 - [安全策略](SECURITY.md)
 - [贡献指南](CONTRIBUTING.md)
 

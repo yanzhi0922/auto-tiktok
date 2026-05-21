@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0 - 2026-05-18
+## 0.1.0 - 2026-05-21
 
-Initial public release.
+First tagged public release.
 
 - MiniMax Token Plan routing for Max/Ultra tiers.
 - Douyin/TikTok content generation pipeline.
@@ -13,3 +13,5 @@ Initial public release.
 - Dockerfile, Docker Compose profiles, health checks, log rotation config, and ops scripts.
 - WhisperX-compatible subtitle interface with fallback estimation mode.
 - CI-ready test suite and lint configuration.
+- Bilingual GitHub README with visual hero, pipeline diagram, and clearer project positioning.
+- GitHub issue templates, pull request template, repository line-ending policy, and release-ready documentation cleanup.

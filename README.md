@@ -301,8 +301,8 @@ python -m compileall config src main.py douyin_main.py auto_scheduler.py run_dai
 - [Autopilot](docs/AUTOPILOT.md)
 - [Deployment](docs/DEPLOYMENT.md)
 - [Promotion](docs/PROMOTION.md)
-- [Douyin Guide](DOUYIN_GUIDE.md)
-- [Automation Usage](AUTO_USAGE.md)
+- [Douyin Guide](docs/DOUYIN_GUIDE.md)
+- [Automation Usage](docs/AUTO_USAGE.md)
 - [Security Policy](SECURITY.md)
 - [Contributing](CONTRIBUTING.md)
 

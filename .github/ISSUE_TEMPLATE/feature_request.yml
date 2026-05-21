@@ -1,0 +1,43 @@
+name: Feature request / 功能建议
+description: Suggest a focused improvement for Auto TikTok.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / 你想解决的问题
+      description: What workflow is painful or missing today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal / 建议方案
+      description: What should Auto TikTok do?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area / 模块
+      options:
+        - Autopilot
+        - VideoPlan
+        - Dashboard
+        - MiniMax API integration
+        - Publishing
+        - Docker/deployment
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered / 其他方案
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context / 补充信息
+      description: Screenshots, examples, or links are welcome. Do not include secrets.

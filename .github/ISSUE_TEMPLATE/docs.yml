@@ -1,0 +1,29 @@
+name: Documentation issue / 文档问题
+description: Report unclear, outdated, or missing documentation.
+title: "[Docs]: "
+labels: ["documentation", "needs-triage"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page / 文档页面
+      placeholder: README.md, docs/AUTOPILOT.md, docs/DEPLOYMENT.md
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is unclear or missing? / 哪里不清楚或缺失？
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested wording or fix / 建议修改
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist / 检查
+      options:
+        - label: I checked the latest `main` branch documentation.
+          required: true
