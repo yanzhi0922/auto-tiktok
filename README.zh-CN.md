@@ -1,45 +1,53 @@
-# Auto TikTok / 抖音 TikTok 自动短视频工厂
+<p align="center">
+  <img src="docs/assets/readme-hero.svg" alt="Auto TikTok - AI 短视频自动化工作流" width="100%" />
+</p>
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+<h1 align="center">Auto TikTok / 抖音 TikTok 自动短视频工厂</h1>
 
-基于 MiniMax、FFmpeg、Docker 和本地 Dashboard 的抖音/TikTok 短视频自动生成与发布准备工作流。
+<p align="center">
+  <strong>本地优先的抖音/TikTok AI 短视频自动生成与发布准备系统。</strong><br />
+  从选题到结构化计划，从素材生成到质量门槛，从发布包导出到本地运维看板。
+</p>
 
-AI-powered Douyin/TikTok short-video autopilot built on MiniMax, FFmpeg, Docker, and a local operations dashboard.
+<p align="center">
+  <a href="README.md">English</a> ·
+  <a href="README.zh-CN.md">简体中文</a> ·
+  <a href="docs/AUTOPILOT.md">Autopilot</a> ·
+  <a href="docs/DEPLOYMENT.md">部署</a> ·
+  <a href="docs/PROMOTION.md">推广</a>
+</p>
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB)
-![Docker](https://img.shields.io/badge/Docker-ready-2496ED)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-MVP%20Autopilot-orange)
+<p align="center">
+  <a href="https://github.com/yanzhi0922/auto-tiktok/actions/workflows/ci.yml"><img src="https://github.com/yanzhi0922/auto-tiktok/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+" />
+  <img src="https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white" alt="Docker ready" />
+  <img src="https://img.shields.io/badge/MiniMax-Token%20Plan-10B981" alt="MiniMax Token Plan" />
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT license" />
+</p>
 
-Auto TikTok 可以把选题自动转成可发布的竖屏短视频内容包：脚本、旁白、字幕、封面、视频素材、质量评分、发布包和运行报告都会结构化落盘。项目还内置本地 Dashboard、任务队列、Docker 运行方式、健康检查、备份、日志轮转，以及可选 TikTok 官方 Content Posting API 适配。
+---
 
-## 核心亮点
+Auto TikTok 是一个偏产品化的短视频自动化工具箱。它可以从选题或热榜来源出发，生成可恢复的 `video_plan.json`，自动生成脚本、旁白、视频、字幕、封面、质量评分、发布包和运行报告，并通过本地 Dashboard 监控、修复和重新生成资产。
 
-- **Topic-to-video Autopilot**：自动选题、脚本、TTS、视频、字幕、封面、合成、质量门槛、发布包导出。
-- **结构化 VideoPlan**：每条内容都会写入 `video_plan.json`，包含脚本、镜头、标题、字幕、封面、模型调用计划和资产路径。
-- **本地 Dashboard/API**：配额快照、历史 run、失败原因、任务队列、单资产重生成、发布动作和 Autopilot 控制。
-- **MiniMax Token Plan 支持**：Max/Ultra 路由、配额统计、模型回退和 manifest 审计字段。
-- **发布链路**：默认导出人工发布包；配置 OAuth 后可选调用 TikTok 官方 Content Posting API。
-- **产品化基线**：Docker、healthcheck、本机默认绑定、会话/CSRF 防护、日志脱敏、备份、日志轮转和迁移脚本。
+它不是一个单纯的“脚本生成器”。项目核心是稳定的 **VideoPlan**：每条内容都有结构化蓝图、模型调用计划、资产路径、质量分、配额审计和失败恢复路径。
 
-## 项目定位
+## 为什么值得 Star
 
-当前项目定位是 **本地优先的短视频生产与发布准备系统**。Autopilot 可以全自动执行内容生成。真正直连 TikTok 发布时，需要你自行完成 TikTok 开发者应用、权限审核、OAuth 授权、账号合规和 `TIKTOK_ACCESS_TOKEN` 配置。
+| 你的需求 | Auto TikTok 提供的能力 |
+| --- | --- |
+| 不想手工设计每条短视频 | Topic-to-video Autopilot：脚本、旁白、视频、字幕、封面、合成一条龙 |
+| AI 生成失败后能恢复 | 每条内容都有 `video_plan.json` 与 `content_manifest.json` |
+| 想知道每次运行发生了什么 | Dashboard、历史 run、配额快照、失败原因、任务队列和报告 |
+| 不想浪费付费额度 | 质量门槛、评分阈值、按配额收敛数量、单资产修复 |
+| 需要真实发布准备 | 默认导出人工发布包，可选 TikTok 官方发布 API 适配 |
+| 希望像产品一样运行 | Docker、healthcheck、会话/CSRF、防日志泄露、备份、日志轮转、迁移 |
 
-如果没有配置 TikTok 凭证，Autopilot 会自动回退到人工发布包导出。
-
-## 快速开始
+## 一分钟启动
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/yanzhi0922/auto-tiktok.git
+cd auto-tiktok
 cp .env.example .env
-python autopilot.py run --dry-run --count 3
-python dashboard.py --host 127.0.0.1 --port 7860
-```
-
-Docker：
-
-```bash
 docker compose up --build dashboard
 ```
 
@@ -49,12 +57,48 @@ docker compose up --build dashboard
 http://127.0.0.1:7860
 ```
 
-## 前置要求
+执行 Autopilot：
 
-- Python 3.10+
-- `ffmpeg` 与 `ffprobe` 已安装并可在命令行直接调用
-- MiniMax Token Plan API Key
-- Docker Desktop，可选但推荐
+```bash
+python autopilot.py run --count 3 --min-score 65 --provider auto
+```
+
+先 dry-run：
+
+```bash
+python autopilot.py run --dry-run --count 5
+```
+
+## 自动化流程
+
+<p align="center">
+  <img src="docs/assets/pipeline.svg" alt="Auto TikTok 自动化流程" width="100%" />
+</p>
+
+## 会生成什么
+
+| 输出 | 说明 |
+| --- | --- |
+| `video_plan.json` | 脚本、镜头、标题、字幕、封面、模型调用计划和资产路径的结构化蓝图 |
+| `content_manifest.json` | 单条内容状态、资产位置、供应商结果、失败原因和审计数据 |
+| `script.json`, `titles.json`, `score.json` | 短视频脚本、标题候选和质量评分 |
+| `*.mp3`, `*.mp4`, `subtitle.srt`, `cover.jpg` | 旁白、视频、字幕、最终合成和封面 |
+| `publish/publish_package.json` | 人工发布包，包含标题、文案、标签、路径和元数据 |
+| `autopilot_report.json` | Autopilot 选题尝试、跳过原因、重试、修复和发布结果 |
+
+## 功能矩阵
+
+| 模块 | 已包含能力 |
+| --- | --- |
+| 选题 | 本地 `trending_topics`、可选外部热榜 URL、内容类型过滤 |
+| 脚本 | 多候选、质量评分、低分跳过高成本视频阶段 |
+| MiniMax | Max/Ultra 路由、Token Plan 模型规格归一、配额统计 |
+| 视频 | Hailuo 2.3 路径、`768P + 6s` 规格归一、封面复用 |
+| 字幕 | 基于音频时长校准的本地字幕，可选 WhisperX 兼容 |
+| Dashboard | 配额、历史、manifest、失败、队列、重生成、发布、Autopilot |
+| 发布 | 人工发布包，可选 TikTok Inbox 或 Direct Post API |
+| 运维 | Docker、healthcheck、备份、日志轮转、迁移、日志脱敏 |
+| 安全 | 默认本机绑定，可选访问令牌、会话 Cookie、CSRF |
 
 ## 配置
 
@@ -70,7 +114,7 @@ MINIMAX_TOKEN_PLAN_KEY2=your_max_token_plan_key
 - `MINIMAX_TOKEN_PLAN_TIER=max` 会按 Max-only 模式运行。
 - Max-only 模式优先读取 `MINIMAX_TOKEN_PLAN_KEY2`，如果没有则回退到 `MINIMAX_TOKEN_PLAN_KEY`。
 - 如果同时持有 Ultra 与 Max Key，可以不设置套餐，并同时配置 `MINIMAX_TOKEN_PLAN_KEY` 与 `MINIMAX_TOKEN_PLAN_KEY2`。
-- 不要提交或分享 `.env`、API Key、访问令牌、Docker config 输出，以及包含隐私信息的日志。
+- 不要提交或分享 `.env`、API Key、访问令牌、Docker config 输出，以及包含隐私信息的原始日志。
 
 主要自动化配置文件：
 
@@ -78,7 +122,7 @@ MINIMAX_TOKEN_PLAN_KEY2=your_max_token_plan_key
 config/auto_config.yaml
 ```
 
-当前默认值更贴近真实配额：
+当前默认值：
 
 - 每日默认生成 `3` 条
 - 默认开启视频
@@ -113,13 +157,11 @@ AUTO_TIKTOK_TRENDING_URLS=https://example.com/topics.json
 
 ## 本地 Dashboard
 
-启动 Dashboard：
-
 ```bash
 python dashboard.py --host 127.0.0.1 --port 7860
 ```
 
-Windows 也可以直接运行：
+Windows 可直接运行：
 
 ```bash
 start_dashboard.bat
@@ -144,7 +186,7 @@ AUTO_TIKTOK_DASHBOARD_SESSION_SECONDS=86400
 AUTO_TIKTOK_DASHBOARD_SECURE_COOKIES=false
 ```
 
-如果走 HTTPS 反向代理，应设置：
+如果走 HTTPS 反向代理：
 
 ```env
 AUTO_TIKTOK_DASHBOARD_SECURE_COOKIES=true
@@ -152,21 +194,9 @@ AUTO_TIKTOK_DASHBOARD_SECURE_COOKIES=true
 
 ## Docker 一键启动
 
-Dashboard：
-
 ```bash
 docker compose up --build dashboard
-```
-
-一次性执行每日生成：
-
-```bash
 docker compose --profile run-once up --build run-once
-```
-
-一次性执行 Autopilot：
-
-```bash
 docker compose --profile autopilot up --build autopilot
 ```
 
@@ -185,7 +215,7 @@ Compose 已包含：
 publish/publish_package.json
 ```
 
-如果要调用 TikTok 官方 Content Posting API，需要配置：
+如果要调用 TikTok 官方 Content Posting API：
 
 ```env
 TIKTOK_ACCESS_TOKEN=your_oauth_access_token
@@ -202,15 +232,8 @@ TIKTOK_PRIVACY_LEVEL=SELF_ONLY
 
 ## 定时任务
 
-安装 Windows 定时 Autopilot：
-
 ```bash
 python auto_scheduler.py --install-task --autopilot --time 09:00 --count 3 --min-score 65 --provider auto
-```
-
-立即执行一次 Autopilot：
-
-```bash
 python auto_scheduler.py --run-now --autopilot --count 1 --provider manual
 ```
 
@@ -239,39 +262,6 @@ output/
 
 每次执行都会创建一个新的 `run_<run_id>`。每条内容会进入三位编号目录，如 `001`，并写入 `content_manifest.json` 和结构化 `video_plan.json`。
 
-## 常用命令
-
-生成通用内容包：
-
-```bash
-python main.py --topic "咖啡文化" --style "文艺清新"
-python main.py --batch examples/topics.txt
-```
-
-生成抖音优化内容：
-
-```bash
-python douyin_main.py --topic "咖啡文化" --type "生活技巧"
-python douyin_main.py --daily --count 3
-python douyin_main.py --weekly
-```
-
-输出审计：
-
-```bash
-python output_manager.py audit --json
-python output_manager.py maintain --archive-test-artifacts
-```
-
-运维：
-
-```bash
-python ops.py health
-python ops.py backup
-python ops.py rotate-logs --keep-days 14
-python ops.py migrate
-```
-
 ## Token Plan 行为
 
 项目会把真实路由结果写入 manifest / report：
@@ -295,16 +285,6 @@ python ops.py migrate
 - Token Plan 视频规格统一收敛为 `768P + 6s`
 
 图片、语音、音乐、视频这类生成型 `POST` 请求带有幂等性保护，不会自动重试，避免重复扣费或重复生成。
-
-## 字幕
-
-默认字幕引擎会根据真实音频时长估算字幕时间。若本机已单独安装 WhisperX，可配置：
-
-```env
-AUTO_TIKTOK_SUBTITLE_ENGINE=whisperx
-```
-
-可用时系统会写入 `word_timestamps.json`，用于字级字幕时间戳。WhisperX 不可用时会自动回退到估算字幕。
 
 ## 测试与校验
 

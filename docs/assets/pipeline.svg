@@ -1,0 +1,77 @@
+<svg width="1280" height="360" viewBox="0 0 1280 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Auto TikTok automation pipeline</title>
+  <desc id="desc">A pipeline diagram showing topic sourcing, VideoPlan, asset generation, quality gate, repair loop, dashboard, and publishing package.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="1" stop-color="#101827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="50" y1="0" x2="1230" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="0.5" stop-color="#A3E635"/>
+      <stop offset="1" stop-color="#FB7185"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="360" rx="30" fill="url(#bg)"/>
+  <path d="M80 180H1198" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" opacity="0.72"/>
+  <path d="M1018 150L1058 180L1018 210" stroke="#FB7185" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)" font-family="Inter, Segoe UI, Arial, sans-serif">
+    <g transform="translate(54 82)">
+      <rect width="170" height="196" rx="22" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="38" r="12" fill="#22D3EE"/>
+      <text x="28" y="81" font-size="25" font-weight="800" fill="#FFFFFF">Topics</text>
+      <text x="28" y="118" font-size="16" fill="#B6C2D4">Local trends</text>
+      <text x="28" y="146" font-size="16" fill="#B6C2D4">External URLs</text>
+      <text x="28" y="174" font-size="16" fill="#B6C2D4">Daily quota</text>
+    </g>
+
+    <g transform="translate(254 82)">
+      <rect width="170" height="196" rx="22" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="38" r="12" fill="#A3E635"/>
+      <text x="28" y="81" font-size="25" font-weight="800" fill="#FFFFFF">VideoPlan</text>
+      <text x="28" y="118" font-size="16" fill="#B6C2D4">Script</text>
+      <text x="28" y="146" font-size="16" fill="#B6C2D4">Shots</text>
+      <text x="28" y="174" font-size="16" fill="#B6C2D4">Model calls</text>
+    </g>
+
+    <g transform="translate(454 82)">
+      <rect width="170" height="196" rx="22" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="38" r="12" fill="#FBBF24"/>
+      <text x="28" y="81" font-size="25" font-weight="800" fill="#FFFFFF">Assets</text>
+      <text x="28" y="118" font-size="16" fill="#B6C2D4">TTS voice</text>
+      <text x="28" y="146" font-size="16" fill="#B6C2D4">Video</text>
+      <text x="28" y="174" font-size="16" fill="#B6C2D4">Captions</text>
+    </g>
+
+    <g transform="translate(654 82)">
+      <rect width="170" height="196" rx="22" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="38" r="12" fill="#FB7185"/>
+      <text x="28" y="81" font-size="25" font-weight="800" fill="#FFFFFF">Gate</text>
+      <text x="28" y="118" font-size="16" fill="#B6C2D4">Score check</text>
+      <text x="28" y="146" font-size="16" fill="#B6C2D4">Skip low fit</text>
+      <text x="28" y="174" font-size="16" fill="#B6C2D4">Audit JSON</text>
+    </g>
+
+    <g transform="translate(854 82)">
+      <rect width="170" height="196" rx="22" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="38" r="12" fill="#38BDF8"/>
+      <text x="28" y="81" font-size="25" font-weight="800" fill="#FFFFFF">Repair</text>
+      <text x="28" y="118" font-size="16" fill="#B6C2D4">Retry assets</text>
+      <text x="28" y="146" font-size="16" fill="#B6C2D4">Task queue</text>
+      <text x="28" y="174" font-size="16" fill="#B6C2D4">Dashboard</text>
+    </g>
+
+    <g transform="translate(1054 82)">
+      <rect width="170" height="196" rx="22" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="38" r="12" fill="#F97316"/>
+      <text x="28" y="81" font-size="25" font-weight="800" fill="#FFFFFF">Publish</text>
+      <text x="28" y="118" font-size="16" fill="#B6C2D4">Package</text>
+      <text x="28" y="146" font-size="16" fill="#B6C2D4">TikTok API</text>
+      <text x="28" y="174" font-size="16" fill="#B6C2D4">Status JSON</text>
+    </g>
+  </g>
+</svg>

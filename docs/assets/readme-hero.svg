@@ -1,0 +1,94 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Auto TikTok AI short-video autopilot</title>
+  <desc id="desc">A polished hero banner showing an automated workflow from topic to video plan, generated assets, quality gate, and publishing package.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111F"/>
+      <stop offset="0.46" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="line" x1="70" y1="0" x2="1190" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="0.5" stop-color="#FBBF24"/>
+      <stop offset="1" stop-color="#FB7185"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="0" y1="0" x2="300" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#030712"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0V38" stroke="#FFFFFF" stroke-opacity="0.055" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="640" rx="34" fill="url(#bg)"/>
+  <rect width="1280" height="640" rx="34" fill="url(#grid)"/>
+  <path d="M70 512C226 456 300 317 465 296C633 275 684 384 856 341C1002 304 1065 170 1210 126" stroke="url(#line)" stroke-width="5" stroke-linecap="round" opacity="0.78"/>
+  <path d="M70 546C227 495 310 384 465 367C644 348 694 445 869 403C1007 370 1076 265 1210 229" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" opacity="0.18"/>
+
+  <g transform="translate(72 70)">
+    <rect x="0" y="0" width="154" height="36" rx="18" fill="#0F766E" fill-opacity="0.18" stroke="#2DD4BF" stroke-opacity="0.35"/>
+    <circle cx="22" cy="18" r="7" fill="#2DD4BF"/>
+    <text x="42" y="23" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#A7F3D0">LOCAL-FIRST AI</text>
+
+    <text x="0" y="108" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="0" fill="#FFFFFF">Auto TikTok</text>
+    <text x="0" y="163" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="31" font-weight="700" letter-spacing="0" fill="#D1D5DB">AI short-video autopilot for creators</text>
+    <text x="0" y="212" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" fill="#A7B1C2">Topic to VideoPlan to assets to quality gate to publish package.</text>
+    <text x="0" y="246" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" fill="#A7B1C2">Built with MiniMax, FFmpeg, Docker, and a local dashboard.</text>
+
+    <g transform="translate(0 314)">
+      <rect x="0" y="0" width="164" height="50" rx="14" fill="#111827" stroke="#334155"/>
+      <text x="20" y="31" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#F9FAFB">VideoPlan</text>
+      <rect x="184" y="0" width="142" height="50" rx="14" fill="#111827" stroke="#334155"/>
+      <text x="204" y="31" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#F9FAFB">Dashboard</text>
+      <rect x="346" y="0" width="126" height="50" rx="14" fill="#111827" stroke="#334155"/>
+      <text x="366" y="31" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#F9FAFB">Docker</text>
+      <rect x="492" y="0" width="128" height="50" rx="14" fill="#111827" stroke="#334155"/>
+      <text x="512" y="31" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#F9FAFB">Publish</text>
+    </g>
+
+    <g transform="translate(0 406)">
+      <text x="0" y="0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" fill="#9CA3AF">ONE COMMAND</text>
+      <rect x="0" y="18" width="640" height="56" rx="14" fill="#020617" stroke="#1E293B"/>
+      <text x="22" y="53" font-family="SFMono-Regular, Consolas, Liberation Mono, monospace" font-size="19" fill="#67E8F9">python autopilot.py run --count 3 --provider auto</text>
+    </g>
+  </g>
+
+  <g transform="translate(786 76)" filter="url(#shadow)">
+    <rect x="0" y="0" width="420" height="488" rx="28" fill="#0B1220" stroke="#334155"/>
+    <rect x="24" y="24" width="372" height="440" rx="22" fill="#111827" stroke="#1F2937"/>
+    <rect x="44" y="46" width="168" height="26" rx="13" fill="#0F766E" fill-opacity="0.22"/>
+    <text x="60" y="64" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#5EEAD4">AUTOPILOT RUNNING</text>
+
+    <rect x="44" y="96" width="144" height="258" rx="22" fill="url(#phone)" stroke="#374151"/>
+    <rect x="62" y="118" width="108" height="178" rx="16" fill="#1F2937"/>
+    <rect x="78" y="137" width="76" height="76" rx="38" fill="#22D3EE" fill-opacity="0.2"/>
+    <path d="M91 222H146" stroke="#FBBF24" stroke-width="6" stroke-linecap="round"/>
+    <path d="M82 244H154" stroke="#FFFFFF" stroke-opacity="0.78" stroke-width="5" stroke-linecap="round"/>
+    <path d="M96 265H142" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="5" stroke-linecap="round"/>
+    <rect x="68" y="316" width="96" height="18" rx="9" fill="#FB7185" fill-opacity="0.8"/>
+
+    <g transform="translate(212 101)">
+      <rect x="0" y="0" width="152" height="58" rx="16" fill="#0F172A" stroke="#334155"/>
+      <text x="18" y="24" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#94A3B8">Topic score</text>
+      <text x="18" y="47" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#FBBF24">82/100</text>
+
+      <rect x="0" y="76" width="152" height="58" rx="16" fill="#0F172A" stroke="#334155"/>
+      <text x="18" y="100" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#94A3B8">Quota aware</text>
+      <text x="18" y="123" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#5EEAD4">Max plan</text>
+
+      <rect x="0" y="152" width="152" height="58" rx="16" fill="#0F172A" stroke="#334155"/>
+      <text x="18" y="176" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" fill="#94A3B8">Repair queue</text>
+      <text x="18" y="199" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#FB7185">ready</text>
+    </g>
+
+    <g transform="translate(44 384)">
+      <rect x="0" y="0" width="320" height="50" rx="14" fill="#020617" stroke="#1E293B"/>
+      <circle cx="28" cy="25" r="8" fill="#22C55E"/>
+      <text x="50" y="31" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#F8FAFC">publish_package.json exported</text>
+    </g>
+  </g>
+</svg>

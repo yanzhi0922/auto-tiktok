@@ -1,45 +1,53 @@
-# Auto TikTok
+<p align="center">
+  <img src="docs/assets/readme-hero.svg" alt="Auto TikTok - AI short-video autopilot" width="100%" />
+</p>
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+<h1 align="center">Auto TikTok</h1>
 
-AI-powered Douyin/TikTok short-video autopilot built on MiniMax, FFmpeg, Docker, and a local operations dashboard.
+<p align="center">
+  <strong>Local-first AI short-video autopilot for Douyin/TikTok creators.</strong><br />
+  Turn topics into structured plans, generated assets, quality-checked videos, and publish-ready packages.
+</p>
 
-基于 MiniMax 的抖音/TikTok 短视频自动生成与发布工作流。中文文档请看 [README.zh-CN.md](README.zh-CN.md)。
+<p align="center">
+  <a href="README.md">English</a> ·
+  <a href="README.zh-CN.md">简体中文</a> ·
+  <a href="docs/AUTOPILOT.md">Autopilot</a> ·
+  <a href="docs/DEPLOYMENT.md">Deployment</a> ·
+  <a href="docs/PROMOTION.md">Promotion</a>
+</p>
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB)
-![Docker](https://img.shields.io/badge/Docker-ready-2496ED)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-MVP%20Autopilot-orange)
+<p align="center">
+  <a href="https://github.com/yanzhi0922/auto-tiktok/actions/workflows/ci.yml"><img src="https://github.com/yanzhi0922/auto-tiktok/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+" />
+  <img src="https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white" alt="Docker ready" />
+  <img src="https://img.shields.io/badge/MiniMax-Token%20Plan-10B981" alt="MiniMax Token Plan" />
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT license" />
+</p>
 
-Auto TikTok turns topics into publish-ready vertical videos. It plans the content, generates scripts, voiceover, subtitles, covers, video assets, quality reports, and publishing packages. It also includes a browser dashboard, task queue, Docker runtime, health checks, backups, and an optional TikTok Content Posting API adapter.
+---
 
-## Highlights
+Auto TikTok is a production-minded automation toolkit for short-video creators and builders. It takes a topic or trend source, creates a recoverable `video_plan.json`, generates scripts, TTS, video, subtitles, covers, reports, and publishing packages, then lets you monitor and repair everything from a local dashboard.
 
-- **Topic-to-video Autopilot**: automatic topic selection, script generation, TTS, video assets, subtitles, cover, composition, quality gates, and publishing package export.
-- **Structured VideoPlan**: every content item writes a durable `video_plan.json` containing script, shots, title, subtitle, cover, model calls, and asset paths.
-- **Local Dashboard/API**: quota snapshot, run history, failure reasons, task queue, asset regeneration, publish actions, and Autopilot controls.
-- **MiniMax Token Plan support**: Max/Ultra routing, quota accounting, model fallback, and explicit audit fields in manifests.
-- **Publishing workflow**: manual publish package by default, optional TikTok official Content Posting API integration when OAuth is configured.
-- **Production baseline**: Docker, healthcheck, local-only default binding, CSRF/session protection, log redaction, backup, log rotation, and migration helpers.
+It is not just a script generator. The core idea is a durable **VideoPlan**: every content item has a structured blueprint, model call plan, asset paths, quality score, quota audit, and recovery path.
 
-## Product Scope
+## Why Star This Project
 
-This project is designed as a **local-first short-video production and publishing-preparation system**. It can run fully automated content generation through Autopilot. Direct TikTok publishing requires your own TikTok developer application, approved permissions, OAuth access token, and platform compliance review.
+| What you need | What Auto TikTok gives you |
+| --- | --- |
+| Generate shorts without hand-building each scene | Topic-to-video Autopilot with script, voice, video, subtitles, cover, and composition |
+| Keep AI generation recoverable | A durable `video_plan.json` plus per-content `content_manifest.json` |
+| See what happened after a run | Dashboard, run history, quota snapshot, failures, queue status, and reports |
+| Avoid wasting paid quota | Quality gates, score thresholds, quota-aware target counts, and asset repair |
+| Prepare for real publishing | Manual publish packages by default, optional TikTok Content Posting API adapter |
+| Run it locally like a product | Docker, healthcheck, CSRF/session protection, log redaction, backup, rotation, migration |
 
-When TikTok credentials are not configured, Autopilot automatically falls back to exporting a manual publishing package.
-
-## Quick Start
+## One-Minute Start
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/yanzhi0922/auto-tiktok.git
+cd auto-tiktok
 cp .env.example .env
-python autopilot.py run --dry-run --count 3
-python dashboard.py --host 127.0.0.1 --port 7860
-```
-
-Docker:
-
-```bash
 docker compose up --build dashboard
 ```
 
@@ -49,12 +57,48 @@ Open:
 http://127.0.0.1:7860
 ```
 
-## Requirements
+Run Autopilot:
 
-- Python 3.10+
-- `ffmpeg` and `ffprobe` available in `PATH`
-- MiniMax Token Plan API key
-- Docker Desktop, optional but recommended
+```bash
+python autopilot.py run --count 3 --min-score 65 --provider auto
+```
+
+Dry run first:
+
+```bash
+python autopilot.py run --dry-run --count 5
+```
+
+## Workflow
+
+<p align="center">
+  <img src="docs/assets/pipeline.svg" alt="Auto TikTok automation pipeline" width="100%" />
+</p>
+
+## What It Generates
+
+| Output | Description |
+| --- | --- |
+| `video_plan.json` | Structured plan for script, shots, title, subtitles, cover, model calls, and asset paths |
+| `content_manifest.json` | Per-content status, asset locations, provider results, failures, and audit data |
+| `script.json`, `titles.json`, `score.json` | Short-video script, title candidates, and quality score |
+| `*.mp3`, `*.mp4`, `subtitle.srt`, `cover.jpg` | Generated voiceover, video, subtitles, final composition, and cover |
+| `publish/publish_package.json` | Manual publishing package with title, copy, hashtags, paths, and metadata |
+| `autopilot_report.json` | Autopilot topic attempts, skips, retries, repairs, and publishing results |
+
+## Feature Matrix
+
+| Area | Included |
+| --- | --- |
+| Topic sourcing | Local `trending_topics`, optional external topic URLs, content type filters |
+| Script generation | Multiple candidates, score gates, low-score skip before costly video calls |
+| MiniMax support | Max/Ultra routing, Token Plan model normalization, quota accounting |
+| Video generation | Hailuo 2.3 path, `768P + 6s` Token Plan normalization, cover reuse |
+| Subtitles | Duration-calibrated local subtitles, optional WhisperX compatibility |
+| Dashboard | Quota, history, manifests, failures, queue, regeneration, publishing, Autopilot |
+| Publishing | Manual package export, optional TikTok Inbox or Direct Post API adapter |
+| Operations | Docker, healthcheck, backup, log rotation, migration, redacted logs |
+| Safety | Local-only default dashboard bind, optional auth token, session cookie, CSRF |
 
 ## Configuration
 
@@ -70,7 +114,7 @@ Notes:
 - `MINIMAX_TOKEN_PLAN_TIER=max` runs in Max-only mode.
 - Max-only mode reads `MINIMAX_TOKEN_PLAN_KEY2` first, then falls back to `MINIMAX_TOKEN_PLAN_KEY`.
 - If you own both Ultra and Max keys, leave the tier unset and configure both `MINIMAX_TOKEN_PLAN_KEY` and `MINIMAX_TOKEN_PLAN_KEY2`.
-- Do not commit or share `.env`, API keys, access tokens, Docker config output, or generated logs containing private data.
+- Never commit or share `.env`, API keys, access tokens, Docker config output, or raw logs containing private data.
 
 Main automation settings live in:
 
@@ -78,7 +122,7 @@ Main automation settings live in:
 config/auto_config.yaml
 ```
 
-Default behavior is tuned for realistic quota usage:
+Current defaults:
 
 - daily target count: `3`
 - video: enabled
@@ -100,8 +144,8 @@ python autopilot.py run --dry-run --count 5
 It automatically:
 
 - builds topic candidates from local `trending_topics` and optional external topic URLs;
-- limits the target count by available video/image quota;
-- generates multiple script candidates and applies score gates;
+- limits target count by available video/image quota;
+- generates script candidates and applies quality gates;
 - skips low-score content before high-cost video generation;
 - repairs missing assets such as video, subtitle, final composition, and cover;
 - exports publish packages by default;
@@ -114,8 +158,6 @@ AUTO_TIKTOK_TRENDING_URLS=https://example.com/topics.json
 ```
 
 ## Dashboard
-
-Start the local dashboard:
 
 ```bash
 python dashboard.py --host 127.0.0.1 --port 7860
@@ -146,7 +188,7 @@ AUTO_TIKTOK_DASHBOARD_SESSION_SECONDS=86400
 AUTO_TIKTOK_DASHBOARD_SECURE_COOKIES=false
 ```
 
-For HTTPS reverse proxies, set:
+For HTTPS reverse proxies:
 
 ```env
 AUTO_TIKTOK_DASHBOARD_SECURE_COOKIES=true
@@ -154,21 +196,9 @@ AUTO_TIKTOK_DASHBOARD_SECURE_COOKIES=true
 
 ## Docker
 
-Dashboard:
-
 ```bash
 docker compose up --build dashboard
-```
-
-One-off daily generation:
-
-```bash
 docker compose --profile run-once up --build run-once
-```
-
-One-off Autopilot run:
-
-```bash
 docker compose --profile autopilot up --build autopilot
 ```
 
@@ -181,13 +211,13 @@ Compose includes:
 
 ## Publishing
 
-Manual publish package export is the default publishing workflow. The package is written to:
+Manual publish package export is the default workflow. The package is written to:
 
 ```text
 publish/publish_package.json
 ```
 
-To use TikTok's official Content Posting API, configure:
+To use TikTok's official Content Posting API:
 
 ```env
 TIKTOK_ACCESS_TOKEN=your_oauth_access_token
@@ -204,15 +234,8 @@ Actual publishing availability depends on TikTok developer app approval, OAuth s
 
 ## Scheduled Runs
 
-Install a Windows scheduled Autopilot task:
-
 ```bash
 python auto_scheduler.py --install-task --autopilot --time 09:00 --count 3 --min-score 65 --provider auto
-```
-
-Run Autopilot immediately:
-
-```bash
 python auto_scheduler.py --run-now --autopilot --count 1 --provider manual
 ```
 
@@ -241,39 +264,6 @@ output/
 
 Each run creates a new `run_<run_id>` directory. Each content item gets a three-digit folder such as `001`, plus a manifest and a structured `video_plan.json`.
 
-## Common Commands
-
-General content package:
-
-```bash
-python main.py --topic "coffee culture" --style "warm documentary"
-python main.py --batch examples/topics.txt
-```
-
-Douyin-optimized content:
-
-```bash
-python douyin_main.py --topic "咖啡文化" --type "生活技巧"
-python douyin_main.py --daily --count 3
-python douyin_main.py --weekly
-```
-
-Output audit:
-
-```bash
-python output_manager.py audit --json
-python output_manager.py maintain --archive-test-artifacts
-```
-
-Operations:
-
-```bash
-python ops.py health
-python ops.py backup
-python ops.py rotate-logs --keep-days 14
-python ops.py migrate
-```
-
 ## Token Plan Behavior
 
 The implementation records real routing details in manifests and reports:
@@ -297,16 +287,6 @@ Current Token Plan rules:
 - Token Plan video output is normalized to `768P + 6s`
 
 Idempotency protection is enabled for generation-style `POST` calls such as image, voice, music, and video creation to avoid accidental duplicate generation.
-
-## Subtitles
-
-The default subtitle engine estimates timing from real audio duration. WhisperX compatibility is available when WhisperX is installed separately:
-
-```env
-AUTO_TIKTOK_SUBTITLE_ENGINE=whisperx
-```
-
-When available, the system writes `word_timestamps.json` for word-level subtitle timing. If WhisperX is unavailable, it falls back to estimated subtitles.
 
 ## Validation
 
@@ -347,7 +327,7 @@ ffprobe -version
 
 ### Why is music disabled by default?
 
-The current default automation path expects background instrumental music, while `music-2.6` is better suited to song generation with lyrics. The pipeline skips music by default so video generation remains reliable and quota-aware.
+The default automation path expects background instrumental music, while `music-2.6` is better suited to song generation with lyrics. The pipeline skips music by default so video generation remains reliable and quota-aware.
 
 ## Acknowledgements
 
